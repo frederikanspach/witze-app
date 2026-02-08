@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Witze App</title>
+  </head>
+  <body>
+    <div id="app">
+      <h1 class="heading">Witze App</h1>
+      <div class="current-joke">
+        <div class="current-joke__text">
+          Welche Person weiß am besten, was den anderen Leuten fehlt? - Ein
+          Dieb.
+        </div>
+
+        <div class="current-joke__actions">
+          <div id="new-joke" class="button button--new">Neuen Witz laden</div>
+          <div id="save-joke" class="button button--save">
+            Witz speichern
+            <svg
+              class="current-joke__icon"
+              xmlns="http://www.w3.org/2000/svg"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke-width="1.5"
+              stroke="currentColor"
+              class="size-6"
+            >
+              <path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                d="M17.593 3.322c1.1.128 1.907 1.077 1.907 2.185V21L12 17.25 4.5 21V5.507c0-1.108.806-2.057 1.907-2.185a48.507 48.507 0 0 1 11.186 0Z"
+              />
+            </svg>
+          </div>
+        </div>
+      </div>
+
+      <div class="saved-jokes">
+        <h2 class="saved-jokes__title">Gespeicherte Witze</h2>
+        <div class="saved-jokes__list">Noch keine Witze gespeichert.</div>
+      </div>
+    </div>
+    <script type="module" src="src/main.js"></script>
+  </body>
+</html>
