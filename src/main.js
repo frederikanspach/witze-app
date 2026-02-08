@@ -6,3 +6,5 @@ const buttonSaveJoke = document.querySelector("#save-joke");
 const savedJokesList = document.querySelector("saved-jokes__list");
 
 let savedJokes = JSON.parse(localStorage.getItem("myJokes")) || [];
+
+// TEST //
