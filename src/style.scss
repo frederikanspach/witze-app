@@ -72,7 +72,11 @@ h1 {
     display: flex;
     align-items: center;
     justify-content: center;
-    transform: $transition;
+    transition: $transition;
+
+    &.is-animating {
+      animation: slideIn 0.3s ease-out;
+    }
   }
 
   &__actions {
@@ -119,8 +123,15 @@ h1 {
   &:hover {
     background-color: transparent;
     color: $primary-color;
-    transform: translateY(-2px); // Kleiner Hover-Effekt
+    transform: translateY(-2px);
     box-shadow: 0 5px 5px rgba($primary-color, 0.3);
+  }
+
+  &:active {
+    background-color: $primary-color;
+    color: #000000;
+    box-shadow: 0 5px 5px rgba(255, 255, 255, 0.1);
+    transform: translateY(-2px);
   }
 
   &--save {
@@ -130,6 +141,12 @@ h1 {
     &:hover {
       background-color: $primary-color;
       color: #000000;
+    }
+    &:active {
+      background-color: transparent;
+      color: $primary-color;
+      box-shadow: 0 5px 5px rgba(255, 255, 255, 0.1);
+      transform: translateY(-2px);
     }
   }
 }
@@ -160,10 +177,11 @@ h1 {
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
+    animation: slideIn 0.4s ease-out forwards;
 
     @include tablet-and-up {
       display: grid;
-      grid-template-columns: 1fr 1fr;
+      grid-template-columns: 1fr auto;
       text-align: left;
     }
   }
