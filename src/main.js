@@ -1,12 +1,10 @@
 import "./style.scss";
-
-// const buttonSaveJoke = document.querySelector("#save-joke");
-// const savedJokesList = document.querySelector("saved-jokes__list");
-// let savedJokes = JSON.parse(localStorage.getItem("myJokes")) || [];
+import { FavoriteJokes } from "./FavoriteJokes.js";
 
 const jokeUrl = "https://witzapi.de/api/joke?language=de";
 const jokeTextDisplay = document.querySelector(".current-joke__text");
 const buttonNewJoke = document.querySelector("#new-joke");
+const buttonSaveJoke = document.querySelector("#save-joke");
 let newJoke;
 
 async function getJoke(jokeUrl) {
@@ -36,5 +34,19 @@ async function handleNewJokeClick() {
   appendJoke(newJoke);
 }
 
+function handleSaveJokeClick() {
+  const success = FavoriteJokes.save(newJoke);
+
+  if (success) {
+    console.log("Witz gespeichert: ", newJoke);
+  } else {
+    console.log("Witz ist schon gespeichert!");
+  }
+}
+
 buttonNewJoke.addEventListener("click", handleNewJokeClick);
 handleNewJokeClick();
+
+buttonSaveJoke.addEventListener("click", handleSaveJokeClick);
+
+console.log("Gespeicherte Witze beim Start:", FavoriteJokes.getAll());
