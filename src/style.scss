@@ -124,7 +124,7 @@ h1 {
 
   &__badge {
     position: absolute;
-    top: -30px;
+    top: -25px;
     font-size: 2.5rem;
     background: var(--container-background-color);
     width: 50px;
@@ -165,14 +165,12 @@ h1 {
     color: var(--primary-color);
   }
 
-  // WICHTIG: Erst alle Basis-Zustände, dann der alles entscheidende :active
   &:active {
-    // Wir erzwingen hier die Werte für ALLE Buttons (auch --save und --option)
     background-color: var(--primary-color);
     color: #000000;
     transform: scale(0.95);
     box-shadow: var(--container-shadow);
-    transition: transform 0.1s; // Schnelle Reaktion
+    transition: transform 0.1s;
   }
 }
 
@@ -285,7 +283,6 @@ body.light-mode #button-theme {
   }
 }
 
-// 1. Erst die Hover-Regeln (nur für Desktop)
 @media (hover: hover) and (pointer: fine) {
   .button:hover {
     background-color: transparent;
