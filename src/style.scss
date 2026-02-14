@@ -28,6 +28,8 @@ $font-display: "Rubik Scribbble";
   --text-muted: #a0a0a0;
   --delete-background-color: red;
   --delete-text-color: white;
+  --container-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  --button-shadow: 0 5px 5px rgba(255, 255, 255, 0.1);
 }
 
 body.light-mode {
@@ -39,6 +41,8 @@ body.light-mode {
   --text-muted: #7f8c8d;
   --delete-background-color: red;
   --delete-text-color: white;
+  --container-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  --button-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
 }
 
 * {
@@ -80,7 +84,7 @@ h1 {
   padding: 2.5rem 2rem;
   margin-bottom: 2rem;
   border-radius: $border-radius;
-  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+  box-shadow: var(--container-shadow);
   text-align: center;
 
   &__text {
@@ -124,47 +128,31 @@ h1 {
   justify-content: center;
   padding: 1rem 1.5rem;
   gap: 0.5rem;
-  border: 1px solid;
+  border: 1px solid var(--primary-color);
   background-color: var(--primary-color);
   color: #000000;
   border-radius: $border-radius;
-  border-color: var(--primary-color);
   font-weight: 600;
   font-size: 1rem;
   transition: $transition;
   text-transform: uppercase;
   letter-spacing: 0.5px;
   cursor: pointer;
-  box-shadow: 0 5px 5px rgba(255, 255, 255, 0.1);
-
-  &:hover {
-    background-color: transparent;
-    color: var(--primary-color);
-    transform: translateY(-2px);
-    box-shadow: 0 5px 5px rgba(0, 0, 0, 0.3);
-  }
-
-  &:active {
-    background-color: var(--primary-color);
-    color: #000000;
-    box-shadow: 0 5px 5px rgba(255, 255, 255, 0.1);
-    transform: translateY(-2px);
-  }
+  box-shadow: var(--button-shadow);
 
   &--save {
     background-color: transparent;
     color: var(--primary-color);
+  }
 
-    &:hover {
-      background-color: var(--primary-color);
-      color: #000000;
-    }
-    &:active {
-      background-color: transparent;
-      color: var(--primary-color);
-      box-shadow: 0 5px 5px rgba(255, 255, 255, 0.1);
-      transform: translateY(-2px);
-    }
+  // WICHTIG: Erst alle Basis-Zustände, dann der alles entscheidende :active
+  &:active {
+    // Wir erzwingen hier die Werte für ALLE Buttons (auch --save und --option)
+    background-color: var(--primary-color);
+    color: #000000;
+    transform: scale(0.95);
+    box-shadow: var(--container-shadow);
+    transition: transform 0.1s; // Schnelle Reaktion
   }
 }
 
@@ -191,7 +179,6 @@ h1 {
     background: var(--container-list-background-color);
     border-radius: $border-radius;
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
-    // background-color: var(--background-color);
     padding: 0.75rem;
     display: flex;
     align-items: center;
@@ -229,16 +216,10 @@ h1 {
 
 .options {
   padding: 1.5rem 2rem;
-  margin-bottom: 2rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
   gap: 1rem;
-
-  #delete-storage:hover {
-    background-color: var(--delete-background-color);
-    color: var(--delete-text-color);
-  }
 }
 
 .button--option {
@@ -284,7 +265,8 @@ body.light-mode #button-theme {
   }
 }
 
-@media (hover: hover) {
+// 1. Erst die Hover-Regeln (nur für Desktop)
+@media (hover: hover) and (pointer: fine) {
   .button:hover {
     background-color: transparent;
     color: var(--primary-color);
@@ -296,4 +278,26 @@ body.light-mode #button-theme {
     background-color: var(--primary-color);
     color: #000000;
   }
+
+  .saved-jokes__delete-icon:hover {
+    background-color: rgb(155, 0, 0);
+  }
+
+  #delete-storage:hover {
+    background-color: rgb(155, 0, 0);
+  }
+}
+
+.button:active {
+  transform: scale(0.95) !important;
+  background-color: var(--primary-color) !important;
+  color: #000000 !important;
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.3);
+  transition: transform 0.1s;
+}
+
+.saved-jokes__delete-icon:active,
+#delete-storage:active {
+  transform: scale(0.9) !important;
+  filter: brightness(0.8);
 }
