@@ -30,6 +30,7 @@ function displayJoke(newJoke) {
   jokeTextDisplay.textContent = newJoke;
 
   jokeTextDisplay.classList.remove("is-animating");
+  // restart css animation hack
   void jokeTextDisplay.offsetWidth;
   jokeTextDisplay.classList.add("is-animating");
 }
