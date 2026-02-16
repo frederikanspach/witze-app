@@ -33,10 +33,6 @@ Diese Anwendung ruft dynamisch Witze von einer externen REST-API ab. Der Fokus l
 
 In diesem Projekt habe ich den professionellen Umgang mit **Vite** und **Sass** vertieft. Eine besondere Herausforderung war das Handling von API-Ladezuständen (Loading States) und Fehlern, um die UI stets stabil zu halten. Zudem habe ich automatisierte Workflows (Bash-Skripte) integriert, um die Asset-Pipeline effizient zu gestalten.
 
-## 🛠 Installation & Start
-
-Um das Projekt lokal zu bearbeiten, benötigst du [Node.js](https://nodejs.org/).
-
 ## ​✍️ Kontakt
 ​Frederik Anspach
 ​GitHub: @frederikanspach
