@@ -37,8 +37,7 @@ In diesem Projekt habe ich den professionellen Umgang mit **Vite** und **Sass** 
 
 Um das Projekt lokal zu bearbeiten, benötigst du [Node.js](https://nodejs.org/).
 
-1. **Repository klonen:**
-   ```bash
-   git clone [https://github.com/frederikanspach/witze-app.git](https://github.com/frederikanspach/witze-app.git)
-   cd witze-app
-   ```
+## ​✍️ Kontakt
+​Frederik Anspach
+​GitHub: @frederikanspach
+​Web: frederikanspach.github.io
